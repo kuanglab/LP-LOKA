@@ -1,4 +1,4 @@
-# Protein Remote Homology Detection and Fold Recognition in Massive Protein Networks
+# Scalable Remote Homology Detection and Fold Recognition in Massive Protein Networks
 
 ## Serial MATLAB / Octave Version
 
