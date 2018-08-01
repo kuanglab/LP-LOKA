@@ -30,7 +30,21 @@ Optional parameters:
 Example:
 
 ```
-f_hat = LPLOKA(F, f0, 'Alpha', 0.9, 'MaxIter', 20, 'Tol', 1e-8);
+clear
+
+%% loading data
+load('test/S');
+load('test/F0');
+[H,~] = fastaread('test/100_seqs.fa');
+
+%% call nystrom
+F = LPLOKA_Nystrom(S);
+
+%% call label propagation
+Fhat = LPLOKA(F, F0, 'Alpha', 0.1);
+
+%% get results
+SeqIds = LPLOKA_GetRankedSequenceID(Fhat, H);
 ```
 
 ## Parallel C++ MPI/OpenMP Version
