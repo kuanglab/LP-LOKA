@@ -163,6 +163,17 @@ val f0 = Loader.readCoordinateMatrixFromTxt(sc, "data/f0.txt", " ")
 val resLP = lp.execute(sc, resNystrom.toBlockMatrix(128, 128), f0, 16, 0.1, 1e-9, 10);
 ```
 
-### Dataset
+## Dataset
 
+Fasta file containing all the 1 million sequences used: [Download](http://compbio.cs.umn.edu/LP-LOKA/Scope95_Swissprot90_All_ADDA_1M.fa)
 
+The order of the sequences is Scop95 + SwissProt90 + ADDA.
+
+### PSI-BLAST queries results in MATLAB format
+
+Each row is a query sequence, and each column the exp(-Eval / 1E2) of a target e-value.
+
+- [SCOP-95 queries against SCOP-95 database](http://compbio.cs.umn.edu/LP-LOKA/S_sparse_Scope95.mat)
+- [SCOP-95+SwissProp90-100k queries against SCOP-95+SwissProp90-100k database](http://compbio.cs.umn.edu/LP-LOKA/S_sparse_Scope95_Swissprot90_100k.mat)
+- [SCOP-95+SwissProp90-200k queries against SCOP-95+SwissProp90-200k database](http://compbio.cs.umn.edu/LP-LOKA/S_sparse_Scope95_Swissprot90_200k.mat)
+- [SCOP-95+SwissProp90 queries against SCOP-95+SwissProp90 database](http://compbio.cs.umn.edu/LP-LOKA/S_sparse_Scope95_Swissprot90_All.mat)
