@@ -53,6 +53,11 @@ SeqIds = LPLOKA_GetRankedSequenceID(Fhat, H);
 
 * Open MPI 1.10.2
 * MacOS 10.12.6 or Linux Ubuntu 16.04
+* Intel MKL Library 2017
+
+### Configuration
+
+Change the path to the MKL Library in the `MakeFile`.
 
 ### Compilation
 You can compile the project using `make` command. To compile individual tools, you can use:
@@ -90,7 +95,7 @@ The list of accepted parameters are the following
 Example:
 
 ```
-mpirun -np 2 ./build/nystrom -i data/input.txt -n 16 -k 5 --verbose -o data/output_ -p 16
+mpirun -np 2 ./build/nystrom -i test/S.txt -n 100 -k 10 --verbose -o test/F.txt -p 16
 ```
 
 #### Low-rank label propagation:
@@ -119,7 +124,7 @@ The list of accepted parameters are the following
 Example:
 
 ```
-mpirun -np <processes> ./build/lploka -F data/F.txt -f0 data/f0.txt -n 16 -k 5 -startIndex 0 -endIndex 5 -maxIter 20 -tol 1e9 --verbose -alpha 0.9 -saveRows 13710 -o output -p 6
+mpirun -np <processes> ./build/lploka -F test/F.txt -f0 test/F0/ -n 100 -k 10 -startIndex 0 -endIndex 2 -maxIter 20 -tol 1e9 --verbose -alpha 0.9 -saveRows 100 -o output -p 6
 ```
 
 ## Parallel Scala Hadoop/Spark Version
